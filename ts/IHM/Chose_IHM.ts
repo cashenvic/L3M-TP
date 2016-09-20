@@ -1,4 +1,4 @@
-import * as NF 			from "../NF/nf";
+import * as NF 			from "../nf/nf";
 import {ComponentIHM} 	from "./ComponentIHM";
 
 const htmlTemplate = `
