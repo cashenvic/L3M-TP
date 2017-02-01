@@ -1,5 +1,5 @@
 type NF_CallBack = (nf: NF, eventName: string, value: any) => void;
-class NF {
+export class NF {
 	private cbList : Map<string, NF_CallBack[]>;
 	constructor() {
 		this.cbList = new Map<string, NF_CallBack[]>();

@@ -5,11 +5,13 @@
 (function(global) {
   // map tells the System loader where to look for things
   let map = {
-      'main': './js'
+      'main': './js',
+      '@NF': './js/nf'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   let packages = {
-      'main': { main: 'main.js',  defaultExtension: 'js', format: 'register' }
+      'main': { main: 'main.js',  defaultExtension: 'js', format: 'register' },
+      '@NF' : { defaultExtension: 'js', format: 'register' }
   };
 
   let config = {

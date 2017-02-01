@@ -8,7 +8,11 @@
     "moduleResolution": "node",
     "removeComments": false,
     "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "baseUrl": ".",
+    "paths": {
+      "@NF/*": ["./ts/nf/*"]
+    }
   },
   "exclude": [
     "node_modules"

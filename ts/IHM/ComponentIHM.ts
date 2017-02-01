@@ -1,7 +1,9 @@
+import {NF as ClassNF} from "@NF/nf";
+
 export class ComponentIHM {
     root: Element;
-    NF  : any;
-    constructor(NF, root: Element) {
+    NF  : ClassNF;
+    constructor(NF: ClassNF, root: Element) {
         this.NF   = NF;
         this.root = root;
     }
