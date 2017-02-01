@@ -1,4 +1,4 @@
-import * as NF 			from "../nf/nf";
+import {ListeChoses}	from "@NF/nf";
 import {ComponentIHM} 	from "./ComponentIHM";
 import {ChoseIHM}		from "./Chose_IHM";
 
@@ -20,9 +20,7 @@ const htmlTemplate = `
 
 // Classe à compléter...
 export class ListeChosesIHM extends ComponentIHM {
-	constructor(public NF: NF.ListeChoses, rootSelector) {
-		super(NF, document.querySelector( rootSelector ));
+	constructor(public NF: ListeChoses, root: HTMLElement | string) {
+		super(NF, root);
 	}
-};
-
-
+}

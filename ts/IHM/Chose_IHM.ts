@@ -1,4 +1,4 @@
-import * as NF 			from "../nf/nf";
+import {Chose} 			from "@NF/nf";
 import {ComponentIHM} 	from "./ComponentIHM";
 
 const htmlTemplate = `
@@ -11,7 +11,7 @@ const htmlTemplate = `
 
 // Classe à compléter...
 export class ChoseIHM extends ComponentIHM {
-	constructor(public NF: NF.Chose, public root: Element) {
+	constructor(public NF: Chose, root: HTMLElement | string) {
 		super(NF, root);
 	}
 }
