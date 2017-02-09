@@ -13,5 +13,17 @@ const htmlTemplate = `
 export class ChoseIHM extends ComponentIHM {
 	constructor(public NF: Chose, root: HTMLElement | string) {
 		super(NF, root);
+		this.root.innerHTML = htmlTemplate;
+		// Bloc 1 : S'abonner aux interaction sur la vue et les traduire en commandes NF
+		let inputFait : HTMLInputElement = this.root.querySelector( "input.toggle" ) as HTMLInputElement;
+		inputFait.addEventListener("change", (evt) => {
+			console.log("La vue dit que", evt);
+			NF.Fait( inputFait.checked );
+		}, false);
+
+		// Bloc 2 : S'abonner aux NF et mettre à jour la vue en conséquence
+		NF.on("update", (nf, eventName, event) => {
+			console.log("Le NF a dit que", event);
+		});
 	}
 }

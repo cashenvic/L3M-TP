@@ -30,16 +30,21 @@ export class NF {
 	}
 }
 
+export type EventChose = {
+	fait?	: boolean,
+	texte?	: string
+};
+export type NF_Chose_CallBack = (nf: Chose, eventName: string, value: EventChose) => void;
 export class Chose extends NF {
-	liste		: ListeChoses;
-	date 		: Date;
-	texte		: string;
-	fait 		: boolean;
-	constructor	(texte: string, liste: ListeChoses) {
+	readonly liste		: ListeChoses;
+	readonly date 		: Date;
+	texte				: string;
+	fait 				: boolean;
+	constructor	(texte: string, liste: ListeChoses, fait: boolean = false, date: Date = null) {
 		super();
 		this.texte  = texte;
-		this.date	= new Date( Date.now() );
-		this.fait	= false;
+		this.date	= date || new Date( Date.now() );
+		this.fait	= fait || false;
 		this.liste	= liste;
 	}
 	dispose		() {
@@ -55,21 +60,37 @@ export class Chose extends NF {
 		this.emit("update", {fait: fait});
 		return this;
 	}
-};
+	on(eventName: "update", cb: NF_Chose_CallBack) : this {
+		return super.on(eventName, cb);
+	}
+	off(eventName: "update", cb: NF_Chose_CallBack) : this {
+		return super.off(eventName, cb);
+	}
+}
 
+export type EventListeChoses = {append?: Chose, remove?:Chose};
+export type NF_ListeChose_CallBack = (nf: ListeChoses, eventName: string, value: EventListeChoses) => void;
 export class ListeChoses extends NF {
-	choses : Chose[];
+	choses 	: Chose[];
 	constructor	() {
 		super();
 		this.choses = [];
 	}
-	Ajouter		(texte: string) {
-		let chose = new Chose(texte, this);
+	Ajouter		(texte: string, fait: boolean = false, date: Date = null) : this {
+		let chose = new Chose(texte, this, fait, date);
 		this.choses.push( chose );
 		this.emit("update", {append: chose});
+		return this;
 	}
-	Retirer		(chose: Chose) {
+	Retirer		(chose: Chose) : this {
 		this.choses.splice( this.choses.indexOf(chose), 1 );
 		this.emit("update", {remove: chose});
+		return this;
 	}
-};
+	on(eventName: "update", cb: NF_ListeChose_CallBack) : this {
+		return super.on(eventName, cb);
+	}
+	off(eventName: "update", cb: NF_ListeChose_CallBack) : this {
+		return super.off(eventName, cb);
+	}
+}
