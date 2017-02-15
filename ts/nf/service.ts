@@ -1,5 +1,5 @@
-import * as NF from "./nf";
+import {ListeChoses} from "./nf";
 
-export let dataPromise = new Promise<NF.ListeChoses>( (resolve) => {
-    setTimeout(() => resolve( new NF.ListeChoses() ), 100);
+export let dataPromise = new Promise<ListeChoses>( (resolve) => {
+    setTimeout(() => resolve( new ListeChoses() ), 100);
 } );
