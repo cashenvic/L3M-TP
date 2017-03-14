@@ -16,9 +16,9 @@
     "zone.js": "^0.6.26"
   },
   "devDependencies": {
-    "@angular/compiler": "~2.1.2",
-    "@angular/core": "~2.1.2",
-    "codelyzer": "^2.0.0-beta.4",
+    "@angular/compiler": "~2.4.9",
+    "@angular/core": "~2.4.9",
+    "codelyzer": "^2.0.1",
     "gulp": "^3.9.1",
     "gulp-tslint": "^7.0.1",
     "gulp-tslint-stylish": "^1.1.1",
