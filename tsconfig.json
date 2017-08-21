@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "noUnusedParameters": false,
+    "noUnusedLocals": true,
+    "target": "es2015",
     "module": "system",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -9,6 +11,8 @@
     "removeComments": false,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
+    "outDir": "./js",
+    "watch": true,
     "baseUrl": ".",
     "paths": {
       "@NF/*": ["./ts/nf/*"]
