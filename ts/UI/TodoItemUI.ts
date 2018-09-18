@@ -1,5 +1,5 @@
-import {Chose} from "@NF/nf";
-import {ComponentIHM} from "./ComponentIHM";
+import {TodoItemNF} from "@NF/Models";
+import {UIComponent} from "./UIComponent";
 
 const htmlTemplate = `
 	<div class="view">
@@ -13,8 +13,8 @@ const htmlTemplate = `
 `;
 
 // Classe à compléter...
-export class ChoseIHM extends ComponentIHM {
-    constructor(public NF: Chose, root: HTMLElement | string) {
+export class TodoItemUI extends UIComponent {
+    constructor(public NF: TodoItemNF, root: HTMLElement | string) {
         super(NF, root);
         this.root.innerHTML = htmlTemplate;
 

@@ -1,6 +1,6 @@
-import {NF as ClassNF} from "@NF/nf";
+import {NF as ClassNF} from "@NF/Models";
 
-export class ComponentIHM {
+export class UIComponent {
     root: HTMLElement;
     NF: ClassNF;
     constructor(NF: ClassNF, root: HTMLElement | string) {

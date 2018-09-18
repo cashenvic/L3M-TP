@@ -1,19 +1,19 @@
-/* Noyau fonctionnel */
-import {ListeChoses} from "@NF/nf";
-import {dataPromise} from "@NF/service";
+import {TodoListNF} from "@NF/Models";
+import {TodoListUI} from "@UI/TodoListUI";
 
-/* Version sans framework */
-import {ListeChosesIHM} from "./IHM/listeChoses_IHM";
-let PromesseDocumentPret = new Promise( (resolve) => {
-    if (document.readyState === "complete") {
-        resolve();
-    } else {
-        document.body.onload = resolve;
-    }
+// Instantiate a Model and a UI
+const tdlNF = new TodoListNF();
+new TodoListUI(tdlNF, "#sansFramework");
+
+// Subscribe to tdlNF to save locally the list
+tdlNF.on("update", () => {
+    const items = tdlNF.items;
+    localStorage.setItem(
+        "L3M-TP3-list",
+        JSON.stringify( items.map( item => ({label: item.label, done: item.done}) ) )
+    );
 });
 
-let P_all = Promise.all( [dataPromise, PromesseDocumentPret] );
-P_all.then( ([liste]: [ListeChoses, {}]) => {
-    console.log("Initialisation...");
-    new ListeChosesIHM(liste, "#sansFramework");
-});
+// At the begining, unserialize the list saved locally, if any
+const itemsSerialized = localStorage.getItem("L3M-TP3-list") || "[]";
+JSON.parse( itemsSerialized ).forEach( item => tdlNF.append(item.label, item.done) );

@@ -15,7 +15,8 @@
     "watch": true,
     "baseUrl": ".",
     "paths": {
-      "@NF/*": ["./ts/nf/*"]
+      "@NF/*": ["./ts/data/*"],
+      "@UI/*": ["./ts/UI/*"]
     }
   },
   "exclude": [
