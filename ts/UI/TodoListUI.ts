@@ -1,4 +1,4 @@
-import {TodoListNF} from "@NF/Models";
+import {TodoListModel} from "@NF/Models";
 import {UIComponent} from "./UIComponent";
 
 const htmlTemplate = `
@@ -19,15 +19,15 @@ const htmlTemplate = `
 
 // Classe à compléter...
 export class TodoListUI extends UIComponent {
-    constructor(public NF: TodoListNF, root: HTMLElement | string) {
-        super(NF, root);
+    constructor(public model: TodoListModel, root: HTMLElement | string) {
+        super(model, root);
         this.root.innerHTML = htmlTemplate;
 
         // Etape 0: Identifier dans le DOM les balises qui m'intéressent
 
         // Etape 1: On traduit les événements issus du HTML en commandes du noyau fonctionnel
 
-        // Etape 2: Traduire les événements du Noyau fonctionnel en commandes I H M
+        // Etape 2: Traduire les événements du Noyau fonctionnel en commandes à l'IHM
     }
 }
 

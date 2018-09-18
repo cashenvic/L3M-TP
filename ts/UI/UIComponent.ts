@@ -1,11 +1,11 @@
-import {NF as ClassNF} from "@NF/Models";
+import {Model} from "@NF/Models";
 
 export class UIComponent {
     root: HTMLElement;
-    NF: ClassNF;
-    constructor(NF: ClassNF, root: HTMLElement | string) {
-        this.NF   = NF;
-        this.root = this.getRoot(root);
+    model: Model;
+    constructor(model: Model, root: HTMLElement | string) {
+        this.model = model;
+        this.root  = this.getRoot(root);
     }
     dispose() {
         this.root.parentNode.removeChild( this.root );

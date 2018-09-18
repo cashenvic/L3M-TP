@@ -1,8 +1,8 @@
-import {TodoListNF} from "@NF/Models";
+import {TodoListModel} from "@NF/Models";
 import {TodoListUI} from "@UI/TodoListUI";
 
 // Instantiate a Model and a UI
-const tdlNF = new TodoListNF();
+const tdlNF = new TodoListModel();
 new TodoListUI(tdlNF, "#sansFramework");
 
 // Subscribe to tdlNF to save locally the list

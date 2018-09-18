@@ -1,4 +1,4 @@
-import {TodoItemNF} from "@NF/Models";
+import {TodoItemModel} from "@NF/Models";
 import {UIComponent} from "./UIComponent";
 
 const htmlTemplate = `
@@ -14,14 +14,14 @@ const htmlTemplate = `
 
 // Classe à compléter...
 export class TodoItemUI extends UIComponent {
-    constructor(public NF: TodoItemNF, root: HTMLElement | string) {
-        super(NF, root);
+    constructor(public model: TodoItemModel, root: HTMLElement | string) {
+        super(model, root);
         this.root.innerHTML = htmlTemplate;
 
         // Etape 0: Identifier les éléments intéressant pour le HTML
 
-        // Bloc 1 : S'abonner aux interaction sur la vue et les traduire en commandes NF
+        // Bloc 1 : S'abonner aux interaction sur la vue et les traduire en commandes model
 
-        // Bloc 2 : S'abonner aux NF et mettre à jour la vue en conséquence
+        // Bloc 2 : S'abonner aux model et mettre à jour la vue en conséquence
     }
 }
