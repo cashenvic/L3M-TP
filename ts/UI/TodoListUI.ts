@@ -19,15 +19,28 @@ const htmlTemplate = `
 
 // Classe à compléter...
 export class TodoListUI extends UIComponent {
+    private form: HTMLFormElement;
+    private ul: HTMLUListElement;
+    private inputToggleAll: HTMLInputElement;
+    private newTodoInput: HTMLInputElement;
+
     constructor(public model: TodoListModel, root: HTMLElement | string) {
         super(model, root);
         this.root.innerHTML = htmlTemplate;
 
         // Etape 0: Identifier dans le DOM les balises qui m'intéressent
+        this.form           = this.root.querySelector( "form"               );
+        this.ul             = this.root.querySelector( "ul.todo-list"       );
+        this.inputToggleAll = this.root.querySelector( "input.toggle-all"   );
+        this.newTodoInput   = this.root.querySelector( "input.new-todo"     );
 
         // Etape 1: On traduit les événements issus du HTML en commandes du noyau fonctionnel
+        this.form.onsubmit = () => {
+
+        }
 
         // Etape 2: Traduire les événements du Noyau fonctionnel en commandes à l'IHM
+
     }
 }
 
