@@ -6,12 +6,20 @@ const tdlNF = new TodoListModel();
 new TodoListUI(tdlNF, "#sansFramework");
 
 // Subscribe to tdlNF to save locally the list
-tdlNF.on("update", () => {
+function serializeList() {
     const items = tdlNF.items;
     localStorage.setItem(
         "L3M-TP3-list",
         JSON.stringify( items.map( item => ({label: item.label, done: item.done}) ) )
     );
+}
+
+tdlNF.on("update", (m, eName, evt) => {
+  serializeList();
+  if (evt.append) {
+    const item = evt.append;
+    item.on("update", serializeList);
+  }
 });
 
 // At the begining, unserialize the list saved locally, if any
